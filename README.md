@@ -8,12 +8,15 @@ regex-grade, deterministic, zero-LLM, and has no package dependencies.
 - **R1:** rejects minting or teaching language on lines containing legacy
   `rappid:v2:` or `rappid:v3:` forms unless the same line says `legacy`,
   `read-forever` (or `read forever`), or `canonicalized`.
+  Teaching vocabulary covers the `mint`, `emit`, `teach`, `use`, `format`,
+  `syntax`, `grammar`, `create`, `generate`, `issue`, `produce`, `write`,
+  `construct`, `assign`, `prefix`, `template`, `example`, and `new` families.
 - **R2:** rejects the obsolete `Prototyping` + `Platform` expansion. The canon is
   `Prototype Platform`.
 - **R3:** twin-pins any sibling `ecosystem-spec.json` and `ECOSYSTEM_SPEC.md`.
   Changing exactly one in the selected commit range fails.
-- **R4:** rejects the disallowed work-account identifier stem and email
-  addresses at the `microsoft.com` and `gmail.com` domains.
+- **R4:** rejects the case-insensitive work-account stem `kowi` + `ldfe` and
+  email addresses at the `microsoft.com` and `gmail.com` domains.
 
 Only Git-tracked UTF-8 text is scanned. Binary files, `.git`, `node_modules`,
 and historical JSON beneath any `frames/` directory are skipped.
