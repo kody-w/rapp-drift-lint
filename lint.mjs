@@ -77,6 +77,17 @@ function shouldSkip(gitPath) {
     return true;
   }
 
+  // Third-party text that must stay verbatim: license/notice aggregations are
+  // legally required to preserve upstream contact lines, and vendored trees
+  // (v86-master) are upstream code we do not author.
+  const base = segments[segments.length - 1].toLowerCase();
+  if (base.startsWith("third_party_licenses") || base === "notice" || base.startsWith("notice.")) {
+    return true;
+  }
+  if (segments.includes("v86-master")) {
+    return true;
+  }
+
   // Root-level versions/ is the content-addressed snapshot archive convention
   // (rapp-god): filenames are hashes of frozen historical content — immutable
   // history, same class as frames/.
